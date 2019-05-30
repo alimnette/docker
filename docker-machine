@@ -1,0 +1,16 @@
+docker-machine create myrancherhost--driver vmwarevsphere \
+				--vmwarevsphere-boot2docker-url ./rancheros-1.2.0-rc2.iso \
+				--vmwarevsphere-vcenter $VCENTER \
+				--vmwarevsphere-username $USERNAME \
+				--vmwarevsphere-password $PASSWORD \
+				--vmwarevsphere-network "$NETWORK" \
+				--vmwarevsphere-cpu-count=2 \
+				--vmwarevsphere-memory-size=2048 \
+				--vmwarevsphere-disk-size=5120 \
+				--vmwarevsphere-datastore=$DATASTORE \
+				--vmwarevsphere-datacenter=$DATACENTER \
+                --vmwarevsphere-cloudinit ./cloud-config.yml \
+				--vmwarevsphere-cfgparam "guestinfo.hostname=myrancherhost" \
+				--vmwarevsphere-cfgparam "guestinfo.interface.0.name=eth0" \
+				--vmwarevsphere-cfgparam "guestinfo.interface.0.ip.0.address=10.0.0.111/24" \
+				--vmwarevsphere-cfgparam "guestinfo.interface.0.route.0.gateway=10.0.0.1"
