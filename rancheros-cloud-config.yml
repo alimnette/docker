@@ -22,7 +22,7 @@ rancher:
       restart: always
       volumes:
       - /usr/bin/iptables:/sbin/iptables:ro
-      - /mnt/nfs-1:/mnt/nfs-1:shared
+      - /mnt/config:/mnt/nfs-1:shared
       environment:
-        SERVER: X.X.X.X
-        SHARE: /shared_path
+        SERVER: 192.168.0.41
+        SHARE: /mnt/stock/rancher/config
